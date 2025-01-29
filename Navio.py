@@ -8,7 +8,8 @@ class Navio:
     
 
     def criar(self,campo:list,sentido:str):
-        try:
+        # esse try está com um bug 
+        try: 
             if self.__tamanho > 4:
                 raise ErroDeTamanhoDoNavio("O tamanho do navio só pode ser no máximo 4")
             elif self.__tamanho <2:
@@ -18,6 +19,8 @@ class Navio:
 
         except ErroDeTamanhoDoNavio as e:
             print(f"Erro no tamanho do navio: {e}")
+        except ErroDeTamanhoDoNavio as f:
+            print(f"Erro no tamanho do navio: {f}")
 
 
     def __criar_vertical(self, campo:list):
@@ -54,7 +57,7 @@ class Navio:
         else: 
             return False
     
-
+    # cria o navio no final da tela 
     def __verificar_cantos_horizontal(self, campo:list, x:int,y:int): 
         tamanho_navio = 0
         while tamanho_navio < self.__tamanho:
@@ -63,7 +66,7 @@ class Navio:
                 x-=1 
                 tamanho_navio+=1
             
-
+    # cria o navio no final da tela 
     def __verificar_cantos_vertical(self, campo:list, x:int,y:int):
         tamanho_navio = 0
         while tamanho_navio < self.__tamanho:

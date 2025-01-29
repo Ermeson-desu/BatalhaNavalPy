@@ -1,6 +1,8 @@
 import os
+# limpa o console
 def Clear():
     os.system('cls')
+
 
 def Letras_coordenadas(campo:list):
     char = 'A'
@@ -11,6 +13,7 @@ def Letras_coordenadas(campo:list):
         campo[y][x] = f"{char}"
         char = chr(ord(char) + 1)
         x += 1
+
 
 def numeros_coordenadas(campo:list):
     x = 0
@@ -23,4 +26,11 @@ def numeros_coordenadas(campo:list):
         else:    
             campo[y][x] = f" {i}"
         i+=1
-        
+
+def renderizar(campo):
+    Clear()
+    Letras_coordenadas(campo)
+    numeros_coordenadas(campo)
+    for linha in campo:
+        print("  ".join(linha))   
+          
