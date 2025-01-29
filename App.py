@@ -8,6 +8,7 @@ def renderizar():
     char = 'A'
     x = 1
     y = 0
+    campo[0][0] = "  "
     while x < 11:
         campo[y][x] = f"{char}"
         char = chr(ord(char) + 1)
@@ -23,7 +24,6 @@ def renderizar():
             campo[y][x] = f" {i}"
         i+=1
         
-
     for linha in campo:
         print("  ".join(linha))   
           
@@ -31,6 +31,6 @@ def renderizar():
 if __name__ == "__main__":
     
     navio1 = Navio()
-    navio1.criar_navios(campo)
+    navio1.criar(campo,"HORIZONTAL")
     renderizar()
     
