@@ -6,16 +6,19 @@ class Navio:
         self.__y = y
         self.__tamanho = tamanho
     
+
     def criar(self,campo:list,sentido:str):
         try:
             if self.__tamanho > 4:
                 raise ErroDeTamanhoDoNavio("O tamanho do navio só pode ser no máximo 4")
-            if sentido == "HORIZONTAL":
-                self.__criar_horizontal(campo)
-            elif sentido == "VERTICAL":
-                self.__criar_vertical(campo)
+            elif self.__tamanho <2:
+                raise ErroDeTamanhoDoNavio("O tamanho do navio não pode ser menhor que 2")
+            
+            self.__verificar_sentido(campo,sentido)
+
         except ErroDeTamanhoDoNavio as e:
             print(f"Erro no tamanho do navio: {e}")
+
 
     def __criar_vertical(self, campo:list):
         x = self.__x
@@ -44,8 +47,45 @@ class Navio:
                 print("Já existe um navio nessa posição!")
                 break
 
+
     def __verificar_posicao(self, campo:list,x:int,y:int) ->bool:
         if campo[y][x] == "~":
             return True
         else: 
             return False
+    
+
+    def __verificar_cantos_horizontal(self, campo:list, x:int,y:int): 
+        tamanho_navio = 0
+        while tamanho_navio < self.__tamanho:
+            if self.__verificar_posicao(campo,x,y) == True:
+                campo[y][x] = "▄"
+                x-=1 
+                tamanho_navio+=1
+            
+
+    def __verificar_cantos_vertical(self, campo:list, x:int,y:int):
+        tamanho_navio = 0
+        while tamanho_navio < self.__tamanho:
+            if self.__verificar_posicao(campo,x,y) == True:
+                campo[y][x] = "▄"
+                y-=1 
+                tamanho_navio+=1
+    
+
+    def __verificar_sentido(self,campo:list,sentido:str):
+        if sentido == "HORIZONTAL":
+
+            if self.__x == 10 or (self.__x >= 8 and self.__tamanho > 2):
+                self.__verificar_cantos_horizontal(campo,self.__x,self.__y)
+            else:
+                self.__criar_horizontal(campo)
+
+        elif sentido == "VERTICAL":
+
+            if self.__y == 10 or (self.__y >= 8 and self.__tamanho > 2):
+                self.__verificar_cantos_vertical(campo,self.__x,self.__y)
+            else:
+                self.__criar_vertical(campo)
+
+
