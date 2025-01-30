@@ -19,9 +19,7 @@ class Navio:
 
         except ErroDeTamanhoDoNavio as e:
             print(f"Erro no tamanho do navio: {e}")
-        except ErroDeTamanhoDoNavio as f:
-            print(f"Erro no tamanho do navio: {f}")
-
+        
 
     def __criar_vertical(self, campo:list):
         x = self.__x

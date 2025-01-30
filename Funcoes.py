@@ -28,7 +28,6 @@ def numeros_coordenadas(campo:list):
         i+=1
 
 def renderizar(campo):
-    Clear()
     Letras_coordenadas(campo)
     numeros_coordenadas(campo)
     for linha in campo:
