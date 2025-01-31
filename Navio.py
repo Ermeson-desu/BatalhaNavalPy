@@ -49,7 +49,7 @@ class Navio:
                 break
 
 
-    def __verificar_posicao(self, campo:list,x:int,y:int) ->bool:
+    def __verificar_posicao(self, campo:list,x:int,y:int) -> bool:
         if campo[y][x] == "~":
             return True
         else: 

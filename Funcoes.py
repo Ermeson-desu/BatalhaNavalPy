@@ -2,7 +2,7 @@ import os
 from Menu import*
 
 # limpa o console
-def Clear():
+def clear():
     os.system('cls')
 
 
@@ -30,11 +30,11 @@ def numeros_coordenadas(campo:list):
         i+=1
 
 def renderizar(campo):
-    Clear()
+    clear()
     cabecalho()
-    menu()
-    # Letras_coordenadas(campo)
-    # numeros_coordenadas(campo)
-    # for linha in campo:
-    #     print("  ".join(linha))   
+    # menu()
+    Letras_coordenadas(campo)
+    numeros_coordenadas(campo)
+    for linha in campo:
+        print("  ".join(linha))   
           
