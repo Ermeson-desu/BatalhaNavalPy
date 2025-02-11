@@ -5,7 +5,6 @@ class Navio:
         self.__x = x
         self.__y = y
         self.__tamanho = tamanho
-    
 
     def criar(self,campo:list,sentido:str):
         # esse try está com um bug 
