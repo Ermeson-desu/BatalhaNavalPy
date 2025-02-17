@@ -1,5 +1,4 @@
 import os
-from Menu import *
 # limpa o console
 def clear():
     os.system('cls')
@@ -28,11 +27,3 @@ def numeros_coordenadas(campo:list):
             campo[y][x] = f" {i}"
         i+=1
 
-def renderizar(campo):
-    clear()
-    menu_inicial()
-    # Letras_coordenadas(campo)
-    # numeros_coordenadas(campo)
-    # for linha in campo:
-    #     print("  ".join(linha))   
-          
